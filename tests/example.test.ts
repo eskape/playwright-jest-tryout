@@ -1,9 +1,12 @@
 // Needs to be higher than the default Playwright timeout
+import {ExamplePage} from "../pages/ExamplePage";
+
 jest.setTimeout(40 * 1000)
 
 describe("Example.com", () => {
   it("should have the exact text 'Example Domain' in the h1", async () => {
-    await page.goto("https://example.com");
+    const examplePage = new ExamplePage(page);
+    examplePage.goto();
     // via the toEqualText method
     await expect(page).toMatchText("h1", "Example Domain")
     // or via the Playwright text selector engine
