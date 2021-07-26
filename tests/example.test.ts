@@ -7,8 +7,7 @@ describe("Example.com", () => {
   it("should have the exact text 'Example Domain' in the h1", async () => {
     const examplePage = new ExamplePage(page);
     examplePage.goto();
-    // via the toEqualText method
-    await expect(page).toMatchText("h1", "Example Domain")
+    examplePage.isShown();
     // or via the Playwright text selector engine
     await expect(page).toHaveSelector('"Example Domain"', {
       state: "attached"

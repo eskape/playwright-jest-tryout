@@ -10,4 +10,9 @@ export class ExamplePage {
     async goto() {
         await this.page.goto("https://example.com");
     }
+
+    async isShown() {
+        // via the toEqualText method
+        await expect(this.page).toMatchText("h1", "Example Domain")
+    }
 }
